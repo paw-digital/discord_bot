@@ -46,6 +46,8 @@ class TransactionQueue(object):
             return
         if Env.banano():
             await user.send(f"Withdraw processed: https://creeper.banano.cc/explorer/block/{hash}")
+        if Env.paw():
+            await user.send(f"Withdraw processed: https://tracker.paw.digital/block/{hash}")
         else:
             await user.send(f"Withdraw processed: https://nanocrawler.cc/explorer/block/{hash}")
 

@@ -25,8 +25,8 @@ class Validators():
 
     @staticmethod
     def validate_checksum_xrb(address: str) -> bool:
-        """Given an xrb/nano/ban address validate the checksum"""
-        if (address[:5] == 'nano_' and len(address) == 65) or (address[:4] in ['ban_', 'xrb_']  and len(address) == 64):
+        """Given an xrb/nano/ban.paw address validate the checksum"""
+        if (address[:5] == 'nano_' and len(address) == 65) or (address[:4] in ['ban_', 'paw_', 'xrb_']  and len(address) == 64):
             # Populate 32-char account index
             account_map = "13456789abcdefghijkmnopqrstuwxyz"
             account_lookup = {}

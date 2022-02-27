@@ -17,6 +17,20 @@ class BananoConversions():
         decimal_amt = decimal_amt.quantize(BANANO_DECIMALS, decimal.ROUND_DOWN)
         return int(decimal_amt * (10 ** 29))
 
+class PawConversions():
+    # 1 BANANO = 10e27 RAW
+    @staticmethod
+    def raw_to_paw(raw_amt: int) -> float:
+        decimal_amt = decimal.Decimal(raw_amt) / (10 ** 27)
+        decimal_amt = decimal_amt.quantize(PAW_DECIMALS, decimal.ROUND_DOWN)
+        return float(decimal_amt)
+
+    @staticmethod
+    def paw_to_raw(paw_amt: float) -> int:
+        decimal_amt = decimal.Decimal(str(paw_amt))
+        decimal_amt = decimal_amt.quantize(PAW_DECIMALS, decimal.ROUND_DOWN)
+        return int(decimal_amt * (10 ** 27))
+
 class NanoConversions():
     # 1 NANO = 10e30 RAW
     @staticmethod

@@ -87,7 +87,7 @@ if __name__ == "__main__":
 	client.add_cog(favorites.FavoriteCog(client))
 	client.add_cog(spy.SpyCog(client))
 	client.add_cog(giveaway.GiveawayCog(client))
-	if not Env.banano():
+	if not (Env.banano() or Env.paw()):
 		# Add a command to warn users that tip unit has changed
 		client.add_cog(tip_legacy.TipLegacyCog(client))
 	# Start bot

@@ -30,9 +30,11 @@ class RegexUtil():
 
     @staticmethod
     def find_address_match(input_text: str) -> str:
-        """Find nano/banano address in a string"""
+        """Find nano/banano/paw address in a string"""
         if Env.banano():
             address_regex = '(?:ban)(?:_)(?:1|3)(?:[13456789abcdefghijkmnopqrstuwxyz]{59})'
+        elif Env.paw():
+            address_regex = '(?:paw)(?:_)(?:1|3)(?:[13456789abcdefghijkmnopqrstuwxyz]{59})'
         else:
             address_regex = '(?:nano|xrb)(?:_)(?:1|3)(?:[13456789abcdefghijkmnopqrstuwxyz]{59})'
         matches = re.findall(address_regex, input_text)
@@ -47,6 +49,8 @@ class RegexUtil():
         """Find nano/banano addresses in a string"""
         if Env.banano():
             address_regex = '(?:ban)(?:_)(?:1|3)(?:[13456789abcdefghijkmnopqrstuwxyz]{59})'
+        elif Env.paw():
+            address_regex = '(?:paw)(?:_)(?:1|3)(?:[13456789abcdefghijkmnopqrstuwxyz]{59})'
         else:
             address_regex = '(?:nano|xrb)(?:_)(?:1|3)(?:[13456789abcdefghijkmnopqrstuwxyz]{59})'
         matches = re.findall(address_regex, input_text)
