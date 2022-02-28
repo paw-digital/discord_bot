@@ -1,6 +1,6 @@
 import os
 
-from util.conversions import BananoConversions, NanoConversions
+from util.conversions import BananoConversions, NanoConversions, PawConversions
 
 class Env():
     @staticmethod
@@ -17,7 +17,7 @@ class Env():
 
     @staticmethod
     def raw_to_amount(raw_amt: int) -> float:
-        converted = BananoConversions.raw_to_banano(raw_amt) if Env.banano() else (PawConversions.raw_to_paw(raw_amt) else NanoConversions.raw_to_nano(raw_amt))
+        converted = BananoConversions.raw_to_banano(raw_amt) if Env.banano() else (PawConversions.raw_to_paw(raw_amt) if Env.paw() else NanoConversions.raw_to_nano(raw_amt))
         return converted
 
     @staticmethod

@@ -21,7 +21,7 @@ from util.util import Utils
 
 ## Command documentation
 TIP_INFO = CommandInfo(
-    triggers = ["ban", "b"] if Env.banano() else (["paw", "p"] if Env.paw() ["ntip", "n"]),
+    triggers = ["ban", "b"] if Env.banano() else (["paw", "p"] if Env.paw() else ["ntip", "n"]),
     overview = "Send a tip to mentioned users",
     details = f"Tip specified amount to mentioned user(s) (**minimum tip is {Constants.TIP_MINIMUM} {Constants.TIP_UNIT}**)" +
         "\nThe recipient(s) will be notified of your tip via private message" +

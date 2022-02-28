@@ -2,6 +2,7 @@ import decimal
 
 NANO_DECIMALS = decimal.Decimal(10) ** -6
 BANANO_DECIMALS = decimal.Decimal(10) ** -2
+PAW_DECIMALS = decimal.Decimal(10) ** -2
 
 class BananoConversions():
     # 1 BANANO = 10e29 RAW
