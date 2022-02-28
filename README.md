@@ -1,11 +1,13 @@
 
-# Graham - Discord Bot for BANANO and NANO
+# Graham - Discord Bot for PAW, BANANO and NANO
 
-[![GitHub release (latest)](https://img.shields.io/github/v/release/bbedward/graham_discord_bot)](https://github.com/bbedward/graham_discord_bot/releases) [![License](https://img.shields.io/github/license/bbedward/graham_discord_bot)](https://github.com/bbedward/graham_discord_bot/blob/master/LICENSE) [![CI](https://github.com/bbedward/graham_discord_bot/workflows/CI/badge.svg)](https://github.com/bbedward/graham_discord_bot/actions)
-
-Graham is the most advanced, highest performing discord bot for any cryptocurrency ever. It is built for the [BANANO](https://banano.cc) and [NANO](https://nano.org) cryptocurrencies.  
+Graham is the most advanced, highest performing discord bot for any cryptocurrency ever. It is built for the [PAW](https://paw.digital), [BANANO](https://banano.cc) and [NANO](https://nano.org) cryptocurrencies.  
 
 The features of this bot include on-chain tipping, rains, favorites, wide-variety of statistics, giveaways, a suite of administration commands, and more.
+
+## Credit
+
+This is the modified PAW version. Credit goes to [bbedward](https://github.com/bbedward/graham_discord_bot) for creating the bot.
 
 ## Why do I want this?
 
@@ -16,7 +18,7 @@ Because Graham is awesome, with it you can:
 
 ## Where can I see it in action?
 
-Head to the [BANANO Discord](https://chat.banano.cc) - you can see both the NANO and BANANO bots in action just by typing `?help` and `.help`
+The bot in action can be seen at the [PAW Discord](https://discord.gg/DjXn6bb3aE)
 
 ## How do I add it to my server?
 
