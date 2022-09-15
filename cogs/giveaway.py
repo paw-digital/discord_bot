@@ -33,8 +33,8 @@ START_GIVEAWAY_INFO = CommandInfo(
                 f"\n**minimum amount: {config.Config.instance().get_giveaway_minimum()} {Env.currency_symbol()}**" +
                 f"\n**minimum duration: {config.Config.instance().get_giveaway_min_duration()} minutes" +
                 f"\n**maximum duration: {config.Config.instance().get_giveaway_max_duration()} minutes" +
-                f"\n**Example:** `{config.Config.instance().command_prefix}giveaway 10 duration=30 fee=0.05`" + 
-                f"\nWould start a giveaway of 10 {Env.currency_symbol()} that lasts 30 minutes with a 0.05 {Env.currency_symbol()} fee."
+                f"\n**Example:** `{config.Config.instance().command_prefix}giveaway 100000 duration=60 fee=1000`" + 
+                f"\nWould start a giveaway of 100000 {Env.currency_symbol()} that lasts 60 minutes with a 1000 {Env.currency_symbol()} fee."
 )
 TICKET_INFO = CommandInfo(
     triggers = ["ticket", "enter", "e"],
@@ -152,7 +152,7 @@ class GiveawayCog(commands.Cog):
 
     def format_giveaway_announcement(self, giveaway: Giveaway, amount: int = None) -> discord.Embed:
         embed = discord.Embed(colour=0xFBDD11 if Env.banano() else (discord.Colour.dark_blue() if Env.paw() else discord.Colour.dark_blue()))
-        embed.set_author(name=f"New Giveaway! #{giveaway.id}", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw_digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
+        embed.set_author(name=f"New Giveaway! #{giveaway.id}", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw-digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
         embed.description = f"<@{giveaway.started_by.id if not giveaway.started_by_bot else self.bot.user.id}> has sponsored a giveaway of **{Env.raw_to_amount(int(giveaway.base_amount if amount is None else amount))} {Env.currency_name()}**!\n"
         fee = Env.raw_to_amount(int(giveaway.entry_fee))
         if fee > 0:
@@ -230,7 +230,7 @@ class GiveawayCog(commands.Cog):
         if isinstance(giveaway.started_by, User):
             ann_message+= f"\n\nThanks to <@{giveaway.started_by.id}> for sponsoring this giveaway!"
         embed = discord.Embed(colour=0xFBDD11 if Env.banano() else (discord.Colour.dark_blue() if Env.paw() else discord.Colour.dark_blue()))
-        embed.set_author(name="We have a winner!", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw_digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
+        embed.set_author(name="We have a winner!", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw-digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
         embed.description = ann_message
 
         for ann in announce_channels:
@@ -569,7 +569,7 @@ class GiveawayCog(commands.Cog):
 
         # Format stats message
         embed = discord.Embed(colour=0xFBDD11 if Env.banano() else (discord.Colour.dark_blue() if Env.paw() else discord.Colour.dark_blue()))
-        embed.set_author(name=f"Giveaway #{gw.id}", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw_digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
+        embed.set_author(name=f"Giveaway #{gw.id}", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw-digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
         fee = Env.raw_to_amount(int(gw.entry_fee))
         if pending_gw is None:
             embed.description = f"There are **{entries} entries** to win **{Env.truncate_digits(amount, max_digits=Env.precision_digits())} {Env.currency_symbol()}**\n"
@@ -659,7 +659,7 @@ class GiveawayCog(commands.Cog):
         response_msg += "```"
 
         embed = discord.Embed(colour=0xFBDD11 if Env.banano() else (discord.Colour.dark_blue() if Env.paw() else discord.Colour.dark_blue()))
-        embed.set_author(name=f"Here are the last {len(winners)} giveaway winners \U0001F44F", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw_digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
+        embed.set_author(name=f"Here are the last {len(winners)} giveaway winners \U0001F44F", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw-digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
         embed.description = response_msg
 
         if not as_dm:
@@ -896,7 +896,7 @@ class GiveawayCog(commands.Cog):
 
             # Build response
             embed = discord.Embed(colour=0xFBDD11 if Env.banano() else (discord.Colour.dark_blue() if Env.paw() else discord.Colour.dark_blue()))
-            embed.set_author(name=f"Giveaway #{gw.id} is active!", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw_digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
+            embed.set_author(name=f"Giveaway #{gw.id} is active!", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw-digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
             embed.description = response
 
             await msg.author.send(embed=embed)
@@ -936,7 +936,7 @@ class GiveawayCog(commands.Cog):
 
         # Build response
         embed = discord.Embed(colour=0xFBDD11 if Env.banano() else (discord.Colour.dark_blue() if Env.paw() else discord.Colour.dark_blue()))
-        embed.set_author(name=f"Here are the active giveaways!", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw_digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
+        embed.set_author(name=f"Here are the active giveaways!", icon_url="https://github.com/bbedward/graham_discord_bot/raw/master/assets/banano_logo.png" if Env.banano() else ("https://github.com/paw-digital/discord_bot/raw/master/assets/paw_logo.png" if Env.paw() else "https://github.com/bbedward/graham_discord_bot/raw/master/assets/nano_logo.png"))
         embed.description = response
 
         await msg.author.send(embed=embed)
